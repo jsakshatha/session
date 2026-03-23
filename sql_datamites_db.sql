@@ -54,9 +54,51 @@ INSERT INTO student VALUES
 (109, 'Pooja', 28, 50),
 (110, 'Amit', 22, NULL);
 
+-- student table is child table
 select * from student;
+
+-- department table is a parent table
 select * from department;
 select  * from employee;
+
+-- add the details of the student who belongs to dept_id 90 which is not exist
+insert into student values(111,"priya",21,90);
+
+-- 1.what is the maximum salary among all the employees?
+
+select max(emp_salary) from employee;
+
+-- task similarly find min,avg,sum functions
+
+
+-- 2. how many employees are present or count the number of employees
+select count(emp_id) from employee;
+
+-- Note : Aggregate functions- max,min,avg,sum,count
+
+-- 3.find the department names in the employee table
+select dept_name from employee;
+
+-- remove the duplicate values from the above output
+select distinct(dept_name) from employee;
+
+-- 4.find the number of employees in each department- by using group by
+
+select * from employee;
+
+select count(emp_id) 
+from employee
+group by dept_name;
+
+
+
+
+
+
+
+
+
+
 
 
 
