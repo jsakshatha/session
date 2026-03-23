@@ -115,60 +115,6 @@ select * from employee;
 
 
 
--- 3.check for not null constraint- emp_name
--- do not insert emp_name-- error? 
-insert into employee (emp_id,emp_dept,emp_age)
-values ("ES006","HR",40);
-
-select * from employee;
-
--- update command
--- 1.update the age of employee to 55 for emp_id is "ES001"
-
-update employee
-set emp_age=55
-where emp_id="ES001";
-
--- verify by using select clause
-select * from employee;
-
--- 2.increase the salary of an employee "ES002"
-update employee
-set emp_salary = emp_salary + 15000 
-where emp_id="ES002";
-
--- 3 increase the salary of an employees who belongs to HR dept
-set sql_safe_updates=0;
-
-update employee
-set emp_salary=emp_salary+emp_salary*0.25
-where emp_dept="hr";
-
-select * from employee;
-
-
-
-
--- delete command
--- delete the details of an employee who's age is less than 30
-delete from employee
-where emp_age<30;
-
--- verify
-select * from employee;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
