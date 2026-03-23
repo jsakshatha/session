@@ -113,6 +113,35 @@ where emp_age<30;
 -- verify
 select * from employee;
 
+-- 23 MARCH 2026
+
+show databases;
+
+use datamites_db3; 
+
+-- alter command
+-- 1.create new colum
+ select * from employee;
+ 
+ -- add new column emp_status by using alter command
+ alter table employee
+ add emp_status varchar(10);
+ 
+ select * from employee;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
