@@ -129,8 +129,55 @@ use datamites_db3;
  
  select * from employee;
 
+-- add multiple columns
+alter table employee add emp_state varchar(120),add emp_gender varchar(10);
+
+-- verify                               
+select * from employee;
+
+-- update emp_status as "active" for all the employees
+set sql_safe_updates=0;
+
+update employee
+set emp_status="active";
 
 
+-- view complete information about the table
+describe employee;
+
+-- modify the constraint and datatype using alter-modify command
+alter table employee modify emp_gender varchar(20) ;
+
+
+-- verify by using describe command
+describe employee;
+select * from employee;
+
+update employee set emp_gender="NA";
+
+alter table employee modify emp_gender varchar(30) NOT NULL ;
+
+-- verify
+Describe employee;
+
+
+-- rename the column name
+alter table employee change emp_name  name_of_employee varchar(50);
+
+describe employee;
+-- rename table
+alter table employee rename to employee_info;
+
+-- verfiy with old table name-- error-- table doesn't exist
+select * from employee;
+
+-- verfiy with new table name-- no error
+select * from employee_info;
+
+-- kindly confirm alter command is clear----------------------
+
+
+ 
 
 
 
