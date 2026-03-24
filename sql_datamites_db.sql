@@ -118,6 +118,36 @@ select *
 from employee
 limit 5;
 
+-- 9.retreive last 3 rows from employee table
+
+-- logic: 1 sort the emp_id in descending order
+-- logic 2: appply limit 3
+select *
+from employee
+order by emp_id desc
+limit 3;
+
+-- 10.find the details of the of the employee who is getting maximum salary
+
+-- logic: apply order by and limit
+select * 
+from employee
+order by emp_salary desc limit 1;
+
+select max(emp_salary) from employee;
+
+
+-- 11. find the details of the employee who belongs to hr department by  using where 
+
+select * 
+from employee
+where dept_name="hr";
+
+-- 12. find the details of the employee who belongs to IT department and salary greater than 50000
+
+
+
+
 
 
 
