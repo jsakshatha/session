@@ -144,6 +144,66 @@ from employee
 where dept_name="hr";
 
 -- 12. find the details of the employee who belongs to IT department and salary greater than 50000
+select * 
+from employee
+where dept_name="It" and emp_salary>50000;
+
+-- 13.find the employee details getting salary between 40000 to 70000
+
+select * 
+from employee
+where emp_salary between 40000 and 70000;
+
+-- 14.find the details of employee where name starts with letter a ,by using like operator
+-- % match any number of character
+select *
+from employee
+where emp_name like "a%";
+
+-- 15.find the details of employee where name ends with letter v ,by using like operator
+-- % match any number of character
+
+select *
+from employee
+where emp_name like "%v";
+
+
+-- 16. find the details of the employee who's name starts with "j" but number of char in name is 3 
+-- _ underscore represents matching with only one characters
+select * 
+from employee
+where emp_name like "j__";
+
+-- 17.find the details of the employee who is getting maximum salary
+select max(emp_salary) from employee;
+
+select *
+from employee
+where emp_salary=90000;
+
+-- sub query
+select *
+from employee
+where emp_salary=(select max(emp_salary) from employee);
+
+-- 18.find the details of the employee belongs to hr and it department by using in operator
+
+select * 
+from employee
+where dept_name in ("hr","it");
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
