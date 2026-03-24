@@ -86,14 +86,37 @@ select distinct(dept_name) from employee;
 
 select * from employee;
 
-select count(emp_id) 
+select dept_name,count(emp_id) 
 from employee
 group by dept_name;
 
 
+SHOW TABLES;
 
+-- 
 
+use datamites_db;
 
+-- 5.find the maximum salary from each depart
+
+select dept_name,max(emp_salary) 
+from employee 
+group by dept_name;
+
+-- 6.sort the employee salaries in ascending order by using order by 
+select *
+from employee
+order by emp_salary asc;
+
+-- 7.sort the employee salaries in descending order by using order by
+select *
+from employee
+order by emp_salary desc;
+
+-- 8. retrieve the first five rows/top 5 rows from the employee table by using limit
+select *
+from employee
+limit 5;
 
 
 
