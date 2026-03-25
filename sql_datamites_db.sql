@@ -191,6 +191,38 @@ where emp_salary=(select max(emp_salary) from employee);
 select * 
 from employee
 where dept_name in ("hr","it");
+-- 25_MARCH_2026
+
+use datamites_db;
+
+show tables;
+
+select * from employee;
+
+-- 19.find the employee earns more than avg salary
+
+-- logic 1:find the avg salary
+-- logic 2: select all fields and in where condition apply above query(logic1)
+
+select avg(emp_salary) from employee;
+
+Select*
+from employee
+where emp_salary > (Select avg(emp_salary) from employee);
+
+
+-- 20:find the second highest salary
+select max(emp_salary) from employee;
+
+select *
+from employee
+where emp_salary<(select max(emp_salary) from employee)
+order by emp_salary desc
+limit 1;
+
+
+
+select * from student;
 
 
 
@@ -198,6 +230,61 @@ where dept_name in ("hr","it");
 
 
 
+select *
+ from employee
+ where emp_salary<(select max(emp_salary) from employee)
+ order by emp_salary desc
+ limit 1;
+ 
+ -- 20. find the number of employees in each dept
+ 
+select dept_name,count(emp_id)
+from employee
+group by dept_name;
+
+ -- 22.which dept have more than 2 employee
+ 
+ select dept_name,count(emp_id)  from employee  group by dept_name  having count(emp_id)>2;
+
+ 
+-- 23. find the number of employees in each dept along with display employee details
+-- windows in sql
+
+select *,
+count(emp_id) over (partition by dept_name) as count_emp
+from employee;
+
+-- rank the employee based on the salary in each dept
+select *,
+rank() over (partition by dept_name order by emp_salary desc) as rank_employee
+from employee;
+
+
+
+
+
+
+select s.s_id,s.s_name,s.dept_id,d.dept_id,d.dept_name,d.dept_head
+from student as s
+inner join department as d
+on s.dept_id=d.dept_id;
+
+
+select s.*,d.* from student as s join department as d on s.dept_id=d.dept_id;
+
+
+
+-- 23. find all the students even if they not belongs to any department
+
+select s.*,d.* 
+from student as s 
+right join department as d 
+on s.dept_id=d.dept_id;
+
+
+
+
+select * from student;
 
 
 
