@@ -67,6 +67,23 @@ select emp_name,emp_age from employee;
 
 select * from employee;
 
+-- verify the constraint
+-- 1. check for primary key constraints-insert duplicate value in emp_id--error
+insert into employee values
+("es001","raj",90000,"HR",24,"2024-12-03");
+
+-- 2.check for not null constraint in emp_name-insert null in emp_name--error
+insert into employee values
+("es005",null,90000,"HR",24,"2024-12-03");
+
+-- 3.check age constarint in emp_age-insert 15 in emp_age-error
+insert into employee values
+("es006","pavan",90000,"HR",15,"2024-12-03");
+
+
+
+
+
 
 
 
