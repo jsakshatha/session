@@ -50,3 +50,34 @@ emp_doj date);
 
 -- verify that table is created or not 
 show tables;
+
+-- insert only record in employee table
+insert into employee values
+("es001","amit",50000,"hr",25,"2020-12-03");
+
+-- insert multiple records
+insert into employee values
+("es002","bhavya",60000,"IT",24,"2022-11-23"),
+("es003","chetan",15000,"sales",22,"2023-12-11"),
+("es004","diya",20000,"sales",23,"2024-12-11");
+
+
+-- view the entire table with field name and values
+select emp_name,emp_age from employee;
+
+select * from employee;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
