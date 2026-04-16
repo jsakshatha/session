@@ -141,6 +141,63 @@ add emp_status varchar(10);
 describe employee;
 select * from employee;
 
+show tables;
+show databases;
+--
+-- 4.delete emp_state colummn
+
+alter table employee
+drop column emp_state;
+
+-- verify
+select * from employee;
+
+
+-- 5. rename the field name
+alter table employee 
+change emp_dept department varchar(20) ;
+
+-- verify--emp_dept is changed to department and number char is changed to 20
+describe employee;
+
+-- update command
+
+-- without using P.K if we try too update the table it throws safe update error
+-- safe update error is default error
+-- by default mysql workbench has enabled safe update mode(updating data thru P.K)
+
+-- to disbale safe update mode
+set sql_safe_updates=0;
+
+update employee
+set emp_status="Active";
+
+
+-- update the data for the specific record
+-- update the age of an employee who's name is anjali
+
+update employee set emp_age=30 where emp_name="anjali";
+
+-- update the emp_status as inactive for those who belongs to sales dept
+
+
+
+select * from employee;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
