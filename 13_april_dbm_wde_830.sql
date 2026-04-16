@@ -84,6 +84,62 @@ insert into employee values
 
 
 
+-- 16TH April 2026
+
+-- 1.view the databases
+show databases;
+
+-- check company_db is present or not?
+
+-- 2.select the database
+
+use company_db;
+
+-- 3.view all the tables
+show tables;
+
+-- view the table with data
+select * from employee;
+
+
+-- 4.insert records only for the specified column
+-- check for the default constraint for emp_salary column
+
+insert into employee(emp_id,emp_name,emp_dept)
+values("cs001","anjali","HR");
+
+-- verify the salary of anjali
+select * from employee;
+
+-- check for not null constraint for emp_dept,insert null value to emp_dept--error
+insert into employee(emp_id,emp_name,emp_dept)
+values("cs002","bhavani",null);
+
+
+
+-- part :2
+-- alter the structure of the table(add new column,delete column,rename,change tghe datatype)
+
+-- 1.view the structure of the table
+describe employee;
+
+-- 2.add new column emp_gender and apply not null constraint
+alter table employee
+add emp_gender varchar(10) not null;
+
+-- verify 
+describe employee;
+select * from employee;
+
+-- 3.add multiple columns
+alter table employee
+add emp_state varchar(20),
+add emp_status varchar(10);
+
+
+-- verify 
+describe employee;
+select * from employee;
 
 
 
