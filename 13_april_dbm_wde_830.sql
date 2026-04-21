@@ -30,13 +30,13 @@ show databases;
 
 
 -- 1.create new database 
-create database company_db;
+create database company_db1;
 
 -- verify db is exist or not?
 show databases;
 
 -- 2. select the database
-use company_db;
+use company_db1;
 
 -- 3.create table with constraints
 create table employee
@@ -183,6 +183,143 @@ update employee set emp_age=30 where emp_name="anjali";
 
 
 select * from employee;
+
+
+
+
+
+
+
+
+
+-- 20-April-2024
+
+show databases;
+
+use company_db;
+
+show tables;
+
+select * from employee;
+
+--  delete an employee who's id is es001
+delete from employee where emp_id="es001";
+
+-- verify
+select * from employee;
+
+-- delete all the employees who belongs to "sales" dept
+set sql_safe_updates=0;
+
+delete from employee where department="sales";
+
+-- verify
+select * from employee;
+
+-- rename the table name
+alter table employee rename to employee_info;
+-- error for old name
+select * from employee;
+
+
+
+
+
+-- refer sql_datamitesdb_queries and execute all commands
+show tables;
+
+-- 1.find the max salary from employee table
+
+select max(emp_salary)from employee;
+
+-- 2.find the number of employees 
+
+select count(emp_id) from employee;
+
+-- 3.find the number of employees in each dept
+select count(emp_id),dept_name
+from employee
+group by dept_name;
+
+-- 4. retreive only the dept names(unique)
+
+select distinct(dept_name) from employee;
+-- 5. sort the salary in ascending order
+
+select emp_salary
+from employee
+order by emp_salary asc;
+
+-- 6. find the details of employees based on highest salary to lowest salary
+
+select *
+from employee
+order by emp_salary desc;
+
+-- 7. retreive 1st 3 records / first 3 rows from employee table
+select * 
+from employee
+limit 3;
+
+-- 8.reterive last 2 records
+select *
+from employee
+order by emp_id desc
+limit 2;
+
+-- 9.find the details of the employees who belongs to HR dept
+select *
+from employee
+where dept_name="HR";
+
+-- 10.find the details of the employees who belongs to HR dept and salary is greater than 35k
+select * 
+from employee 
+where dept_name="HR" and emp_salary>35000;
+
+-- 11.find the details of the employees who belongs to HR and sales dept
+
+-- solution 1: by using or operator
+Select * 
+from employee 
+where dept_name = "HR" or dept_name = "sales";
+
+-- solution 2: by using in operator
+Select * 
+from employee 
+where dept_name in ("hr","sales");
+
+-- 12. find the details of employee where the salary is between 25k and  60K
+select *
+from employee
+where emp_salary between 25000 and 60000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- returns the table 
+select * from employee_info;
+
+
+
+
+
+
+
 
 
 
