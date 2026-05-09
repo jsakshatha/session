@@ -317,6 +317,127 @@ select * from employee_info;
 
 
 
+-- 21ST APRIL 2025
+show databases;
+
+use datamites_db;
+
+show tables;
+
+-- 13.find the details of the employee who is getting max salary by using orderby and limit
+select *
+from employee
+order by emp_salary desc
+limit 1;
+
+
+-- 14.find the details of the employee who's name starts with letter A
+-- % represents any number of characters after A
+select *
+from employee
+where emp_name like "z%";
+
+-- 16.find the details of the employee who's name ENDS with letter A
+select *
+from employee
+where emp_name like "%a";
+
+
+-- Sub Queries
+-- 17.find the details of the employee who is getting max salary
+
+select max(emp_salary) from employee;
+
+select *
+from employee
+where emp_salary=90000;
+
+-- subqueries
+select *
+from employee
+where emp_salary=(select max(emp_salary) from employee);
+
+
+
+
+select *
+from employee
+where emp_salary=(select max(emp_salary)from employee);
+
+select max(emp_salary),emp_name,emp_id
+from employee;
+
+select avg(emp_salary) from employee;
+
+-- find the details of the employee who is getting second highest salary 
+select *
+from employee
+where emp_salary<(select max(emp_salary)from employee)
+order by emp_salary desc
+limit 1;
+
+
+select * from department;
+select * from student;
+
+
+-- inner join--- common data which is there in both table
+select * 
+from student as s
+left join department as d 
+on s.dept_id = d.dept_id;
+
+
+
+
+
+
+
+select s.s_name,d.dept_id,d.dept_name
+from student as s
+inner join department as d 
+on s.dept_id = d.dept_id;
+
+
+-- 22-APRIL-2026
+
+USE datamites_db;
+
+
+
+
+
+
+
+
+
+-- number of employess in each dept
+select count(emp_id),dept_name
+from employee
+group by dept_name;
+
+
+select *,
+count(emp_id) over(partition by dept_name) as count_emp
+from employee;
+
+
+
+
+show tables;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
