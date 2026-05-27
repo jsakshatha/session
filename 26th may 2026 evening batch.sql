@@ -135,6 +135,32 @@ select * from employee;
 -- ===========================================================================
 -- 							update command
 -- ==========================================================================
+-- setting to enable the update mode
+set sql_safe_updates=0;
+
+select * from employee;
+-- step 18: update the emp_status for all the employee
+update employee set emp_status="active";
+
+-- verify
+select * from employee;
+
+
+-- step 19: update the emp_age to 55 for an emp_id es001
+update employee set emp_age=55 where emp_id="es001";
+
+-- verify
+select * from employee;
+
+-- step 20: update the emp_status to inactive for salary grt than 50k and country is INdia
+update employee
+set emp_status="inactive"
+where emp_salary>50000 and emp_country="INDIA";
+
+-- verify
+select * from employee;
+
+
 
 
 
