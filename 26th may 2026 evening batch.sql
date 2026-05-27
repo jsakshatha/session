@@ -52,6 +52,112 @@ select * from employee;
 -- step 12: check for age constraint
 insert into employee values("es007","patel",10,55000,"2022-12-12");
 
+-- 2th may 2026
+
+show databases;
+
+-- very very imp step
+-- select the database using use command
+use sit_college_db;
+
+show tables;
+
+select * from employee;
+
+-- step 12: check for age constraint
+insert into employee values("es007","patel",10,55000,"2022-12-12");
+
+
+
+
+-- step 13: check for not null constraint for the field emp_name
+insert into employee(emp_id,emp_age,emp_doj)
+values("es008",44,"2022-12-12");
+
+insert into employee(emp_id,emp_name,emp_age,emp_doj)
+values("es008",null,44,"2022-12-12");
+
+
+describe employee;
+
+-- ===================================================
+-- 						alter command
+-- ======================================================
+-- alters are used to change the structure of the tables
+-- field names can be renamed
+-- can modify the constraints
+-- add or delete the column
+-- can rename the table name
+
+describe employee;
+
+-- step 14: add new column emp_gender
+alter table employee add emp_gender varchar(10);
+
+-- verify 
+select * from employee;
+
+describe employee;
+
+-- step 15: add multiple columns with constraint\
+alter table employee
+add emp_status varchar(10) not null,
+add emp_country varchar(15) default "INDIA";
+
+-- VERIFY
+-- * represents all the fields in the table
+select * from employee;
+
+select emp_name from employee;
+
+select emp_name,emp_age from employee;
+
+-- step 16: change th e field name/rename the field emp_name to bname_of_emp
+alter table employee
+change emp_name name_of_employee varchar(50) not null;
+
+
+-- verify
+describe employee;
+
+-- step 17: modify the constraint for the field emp_country
+-- before modification varchar(15) and contains null value(yes) default is INDIA
+
+alter table employee
+modify emp_country varchar(30) not null default "Australia";
+
+describe employee;
+
+select * from employee;
+insert into employee (emp_id,name_of_employee,emp_status)values("es011","sahana","active");
+
+select * from employee;
+-- ===========================================================================
+-- 							update command
+-- ==========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
