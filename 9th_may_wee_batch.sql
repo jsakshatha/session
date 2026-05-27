@@ -269,6 +269,308 @@ select max(emp_salary) from employee;
 -- query 10:find the number of employees in employee table
 -- query 11: find the total salary
 
+-- 16th may 2026
+
+show databases;
+
+-- select the database
+use datamites_db;
+
+show tables;
+
+select * from employee;
+
+-- query 12:find the distinct(unique)names in the dept column
+-- find the department names which is employee table
+
+select distinct dept_name from employee;
+
+select * from employee;
+
+-- query 13:find the number of employees in each dept
+
+select count(emp_id),dept_name,emp_name
+from employee
+group by dept_name;
+
+
+
+-- query 14: find the maximum salary in each departement
+select max(emp_salary),dept_name
+from employee
+group by dept_name;
+-- query 15:find the average salary in each dept
+select avg(emp_salary), dept_name from employee
+group by dept_name ;
+
+-- query 16: find the total salary in each dept
+
+select sum(emp_salary), dept_name from employee
+group by dept_name ;
+-- query 17: sort the salary in ascending order
+select emp_salary
+from employee
+order by emp_salary asc;
+
+-- query 18: find the details of all the employees who's getting salary from  lowest to highest
+select * 
+from employee
+order by emp_salary asc;
+
+-- 19.arrange the employee details based on the highest salary
+select * 
+from employee
+order by emp_salary desc;
+-- query 20: fetch first three records
+select *
+from employee
+limit 3;
+
+-- query 21: to fetech last  5 records
+-- int: usery orderby and limit
+select * 
+from employee
+order by emp_id desc
+limit 3;
+
+
+-- query 18: find the details of the employee who belongs to HR dept
+
+select * 
+from  employee 
+where dept_name = 'HR';
+-- like operator- matching the expression
+-- query 19: find the employee names starts with letter a
+-- % represents match any chars followed by letter
+select emp_name
+from employee
+where emp_name like "A%";
+
+
+-- query 20: find the employee names ends with letter a
+
+select emp_name
+from employee 
+where emp_name like '%a';
+
+
+-- query 21: find the employee detail who is getting max salary
+-- method 1: by using order by and limit
+select * 
+from employee
+order by emp_salary desc
+limit 1;
+
+
+-- method 2
+-- step 1: find the max salary
+-- select max(emp_salary) from employee;
+-- step 2: find all the employee who is getting salary equal to 90000
+select * from employee where emp_salary = '90000';
+
+-- sub queries
+-- find the details of the employee who is getting max salary
+select * from employee where emp_salary = (select max(emp_salary) from employee);
+-- query 22: find the employee details who is getting salary more than average salary
+
+select *
+from employee
+where emp_salary > (select avg(emp_salary) from employee);
+
+-- query 24: find the second highest salary
+-- step 1: find the details of the employee who is getting salary less than max salar
+
+select *
+from employee
+where emp_salary < (select max(emp_salary) from employee)
+order by emp_salary desc
+limit 1;
+
+select count(emp_id)
+from employee
+group by dept_name;
+
+-- query 25: find the number of employees in each dept and display the emp_names along with it 
+
+select *,
+count(emp_id) over(partition by dept_name) as emp_count_column
+from employee;
+
+
+-- query 26: rank the employee in each dept  based on the highestt salary
+
+select *,
+rank() over(partition by dept_name order by emp_salary desc) as rank_of_emp
+from employee;
+
+
+-- joins
+
+select *  from student;
+
+select * from department;
+
+
+
+
+
+
+
+select s.*,d.*
+from student as s
+inner join department as d
+on s.dept_id =d.dept_id;
+
+-- left join
+select s.*,d.*
+from student as s
+right join department as d
+on s.dept_id =d.dept_id;
+
+
+select s.*,d.*
+from student as s
+right join department as d
+on s.dept_id = d.dept_id
+where d.dept_name = "CDS";
+
+
+
+
+
+
+select s.*,d.*
+from student as s
+left join department as d
+on s.dept_id =d.dept_id
+where d.dept_name is NULL;
+
+
+select count(s_id),dept_name
+from student as s
+inner join department as d
+on s.dept_id = d.dept_id
+group by dept_name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
